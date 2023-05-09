@@ -340,7 +340,7 @@ void motorsTestTask(void* params);
  *     motorsBeep(true, 1000, (uint16_t)(72000000L / frequency)/ 20);
  *     motorsBeep(false, 0, 0); *
  * */
-void motorsBeep(int id, bool enable, uint16_t frequency, uint16_t ratio);
+void motorsBeep(int id, bool enable, uint16_t frequency, uint16_t compareRegister);
 
 /**
  * Retrieve the health test settings of the given motor. This allows us to use

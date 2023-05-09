@@ -59,8 +59,6 @@ static void motorsDshotDMASetup();
 static volatile uint32_t dmaWait;
 #endif
 
-void motorsPlayTone(uint16_t frequency, uint16_t duration_msec);
-void motorsPlayMelody(uint16_t *notes);
 void motorsBeep(int id, bool enable, uint16_t frequency, uint16_t ratio);
 
 #include "motors_def.c"
@@ -568,7 +566,7 @@ int motorsGetRatio(uint32_t id)
   return motor_ratios[id];
 }
 
-void motorsBeep(int id, bool enable, uint16_t frequency, uint16_t ratio)
+void motorsBeep(int id, bool enable, uint16_t frequency, uint16_t compareRegister)
 {
   TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 
@@ -591,38 +589,8 @@ void motorsBeep(int id, bool enable, uint16_t frequency, uint16_t ratio)
 
     // Timer configuration
     TIM_TimeBaseInit(motorMap[id]->tim, &TIM_TimeBaseStructure);
-    motorMap[id]->setCompare(motorMap[id]->tim, ratio);
+    motorMap[id]->setCompare(motorMap[id]->tim, compareRegister);
   }
-}
-
-
-// Play a tone with a given frequency and a specific duration in milliseconds (ms)
-void motorsPlayTone(uint16_t frequency, uint16_t duration_msec)
-{
-  motorsBeep(MOTOR_M1, true, frequency, (uint16_t)(MOTORS_TIM_BEEP_CLK_FREQ / frequency)/ 20);
-  motorsBeep(MOTOR_M2, true, frequency, (uint16_t)(MOTORS_TIM_BEEP_CLK_FREQ / frequency)/ 20);
-  motorsBeep(MOTOR_M3, true, frequency, (uint16_t)(MOTORS_TIM_BEEP_CLK_FREQ / frequency)/ 20);
-  motorsBeep(MOTOR_M4, true, frequency, (uint16_t)(MOTORS_TIM_BEEP_CLK_FREQ / frequency)/ 20);
-  vTaskDelay(M2T(duration_msec));
-  motorsBeep(MOTOR_M1, false, frequency, 0);
-  motorsBeep(MOTOR_M2, false, frequency, 0);
-  motorsBeep(MOTOR_M3, false, frequency, 0);
-  motorsBeep(MOTOR_M4, false, frequency, 0);
-}
-
-// Plays a melody from a note array
-void motorsPlayMelody(uint16_t *notes)
-{
-  int i = 0;
-  uint16_t note;      // Note in hz
-  uint16_t duration;  // Duration in ms
-
-  do
-  {
-    note = notes[i++];
-    duration = notes[i++];
-    motorsPlayTone(note, duration);
-  } while (duration != 0);
 }
 
 const MotorHealthTestDef* motorsGetHealthTestSettings(uint32_t id)
