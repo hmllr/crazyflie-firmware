@@ -38,9 +38,8 @@
 #include "task.h"
 
 #include "motors.h"
-#include "led.h"
 
-#define DEBUG_MODULE "HELLOWORLD"
+#define DEBUG_MODULE "TASK2"
 #include "debug.h"
 
 #define d 200
