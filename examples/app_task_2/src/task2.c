@@ -42,44 +42,25 @@
 #define DEBUG_MODULE "TASK2"
 #include "debug.h"
 
-#define d 200
-uint16_t testmelody[52] = {D4, d, D4, d, E4, 2*d, D4, 2*d, G4, 2*d, GES4, 4*d,D4, d, D4, d, E4, 2*d, D4, 2*d, A4, 2*d, G4, 4*d, D4, d, D4, d, D5, 2*d, H4, 2*d, G4, 2*d, GES4, 2*d, E4, 2*d, C5, d, C5, d, H4, 2*d, G4, 2*d, A4, 2*d, G4, 4*d, D4, 0};
+uint16_t testmelody[] = {D4, 0}; // PLACEHOLDER FOR YOUR MELODY
 
 // Play a tone with a given frequency and a specific duration in milliseconds (ms)
 void motorsPlayTone(uint16_t frequency, uint16_t duration_msec)
 {
-  motorsBeep(MOTOR_M1, true, frequency, (uint16_t)(MOTORS_TIM_BEEP_CLK_FREQ / frequency)/ 20);
-  motorsBeep(MOTOR_M2, true, frequency, (uint16_t)(MOTORS_TIM_BEEP_CLK_FREQ / frequency)/ 20);
-  motorsBeep(MOTOR_M3, true, frequency, (uint16_t)(MOTORS_TIM_BEEP_CLK_FREQ / frequency)/ 20);
-  motorsBeep(MOTOR_M4, true, frequency, (uint16_t)(MOTORS_TIM_BEEP_CLK_FREQ / frequency)/ 20);
-  vTaskDelay(M2T(duration_msec));
-  motorsBeep(MOTOR_M1, false, frequency, 0);
-  motorsBeep(MOTOR_M2, false, frequency, 0);
-  motorsBeep(MOTOR_M3, false, frequency, 0);
-  motorsBeep(MOTOR_M4, false, frequency, 0);
+  // PLACEHOLDER FOR YOUR CODE
 }
 
-// Plays a melody from a note array
+// Plays a melody from a note array - end with a 0 duration note to terminate
 void motorsPlayMelody(uint16_t *notes)
 {
-  int i = 0;
-  uint16_t note;      // Note in hz
-  uint16_t duration;  // Duration in ms
-
-  do
-  {
-    note = notes[i++];
-    duration = notes[i++];
-    motorsPlayTone(note, duration);
-    // DEBUG_PRINT("%d %d\n", note, duration);
-  } while (duration != 0);
+  // PLACEHOLDER FOR YOUR CODE
 }
 
 void appMain() {
-  DEBUG_PRINT("I am the solution of programming task 2 ...\n");
+  DEBUG_PRINT("I am programming task 2 ...\n");
 
   while(1) {
     vTaskDelay(M2T(2000));
-    motorsPlayMelody(testmelody);
+    // PLACEHOLDER FOR YOUR CODE
   }
 }

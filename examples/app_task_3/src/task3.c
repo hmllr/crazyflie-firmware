@@ -41,16 +41,15 @@
 #define DEBUG_MODULE "TASK3"
 #include "debug.h"
 
-static uint8_t test = 0;
+// PLACEHOLDER FOR YOUR CODE - initialize the param
 
 void appMain() {
-  DEBUG_PRINT("I am the solution of programming task 3 ...\n");
+  DEBUG_PRINT("I am programming task 3 ...\n");
 
   while(1) {
     vTaskDelay(M2T(2000));
-    DEBUG_PRINT("Hello World! %d \n", test);
+    // PLACEHOLDER FOR YOUR CODE - print the param
   }
 }
-PARAM_GROUP_START(app)
-  PARAM_ADD(PARAM_UINT8, test, &test)
-PARAM_GROUP_STOP(app)
+
+// PLACEHOLDER FOR YOUR CODE - define the param group and add the param

@@ -42,14 +42,9 @@
 #include "debug.h"
 
 void appMain() {
-  DEBUG_PRINT("I am the solution of programming task 1 ...\n");
+  DEBUG_PRINT("I am programming task 1 ...\n");
 
   while(1) {
-    vTaskDelay(M2T(2000));
-    ledSet(LED_RED_L, 1);
-    ledSet(LED_GREEN_L, 0);
-    vTaskDelay(M2T(2000));
-    ledSet(LED_RED_L, 0);
-    ledSet(LED_GREEN_L, 1);
+    vTaskDelay(M2T(2000)); // PLACEHOLDER FOR YOUR CODE (just waits 2000ms) 
   }
 }

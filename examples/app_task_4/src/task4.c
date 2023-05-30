@@ -47,27 +47,9 @@
 #define DECK_GPIO_LED_BLUE      DECK_GPIO_RX2
 
 void appMain() {
-  DEBUG_PRINT("I am the solution of programming task 4 ...\n");
-  pinMode(DECK_GPIO_LED_RED, OUTPUT);     // Set my Led pin to output
-  pinMode(DECK_GPIO_LED_BLUE, OUTPUT);     // Set my Led pin to output
-  pinMode(DECK_GPIO_LED_GREEN, OUTPUT);     // Set my Led pin to output
-  pinMode(DECK_GPIO_LED_YELLOW, OUTPUT);     // Set my Led pin to output
-  digitalWrite(DECK_GPIO_LED_RED, LOW);  // Turn it off
-  digitalWrite(DECK_GPIO_LED_GREEN, LOW);  // Turn it off
-  digitalWrite(DECK_GPIO_LED_YELLOW, LOW);  // Turn it off
-  digitalWrite(DECK_GPIO_LED_BLUE, LOW);  // Turn it off
+  DEBUG_PRINT("I am programming task 4 ...\n");
+  // PLACEHOLDER FOR YOUR CODE - Set the mode for the GPIOs
   while(1) {
-    digitalWrite(DECK_GPIO_LED_BLUE, LOW);  // Turn it off
-    digitalWrite(DECK_GPIO_LED_RED, HIGH);  // Light it up
-    vTaskDelay(M2T(1000));
-    digitalWrite(DECK_GPIO_LED_RED, LOW);  // Turn it off
-    digitalWrite(DECK_GPIO_LED_GREEN, HIGH);  // Light it up
-    vTaskDelay(M2T(1000));
-    digitalWrite(DECK_GPIO_LED_GREEN, LOW);  // Turn it off
-    digitalWrite(DECK_GPIO_LED_YELLOW, HIGH);  // Light it up
-    vTaskDelay(M2T(1000));
-    digitalWrite(DECK_GPIO_LED_YELLOW, LOW);  // Turn it off
-    digitalWrite(DECK_GPIO_LED_BLUE, HIGH);  // Light it up
-    vTaskDelay(M2T(1000));
+    vTaskDelay(M2T(2000)); // PLACEHOLDER FOR YOUR CODE (just waits 2000ms) 
   }
 }
