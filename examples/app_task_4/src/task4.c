@@ -22,7 +22,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  *
- * task2.c - App layer application for task 2 
+ * task2.c - App layer application for task 4
  * 
  * 9.5.2023 modified by: Hanna Müller, hanmuell@ethz.ch, ETH Zürich
  */
@@ -33,6 +33,7 @@
 #include <stdbool.h>
 
 #include "app.h"
+#include "deck.h"
 
 #include "FreeRTOS.h"
 #include "task.h"
@@ -40,10 +41,33 @@
 #define DEBUG_MODULE "task4"
 #include "debug.h"
 
+#define DECK_GPIO_LED_RED       DECK_GPIO_RX1
+#define DECK_GPIO_LED_GREEN     DECK_GPIO_TX1
+#define DECK_GPIO_LED_YELLOW    DECK_GPIO_TX2
+#define DECK_GPIO_LED_BLUE      DECK_GPIO_RX2
+
 void appMain() {
   DEBUG_PRINT("I am the solution of programming task 4 ...\n");
-
+  pinMode(DECK_GPIO_LED_RED, OUTPUT);     // Set my Led pin to output
+  pinMode(DECK_GPIO_LED_BLUE, OUTPUT);     // Set my Led pin to output
+  pinMode(DECK_GPIO_LED_GREEN, OUTPUT);     // Set my Led pin to output
+  pinMode(DECK_GPIO_LED_YELLOW, OUTPUT);     // Set my Led pin to output
+  digitalWrite(DECK_GPIO_LED_RED, LOW);  // Turn it off
+  digitalWrite(DECK_GPIO_LED_GREEN, LOW);  // Turn it off
+  digitalWrite(DECK_GPIO_LED_YELLOW, LOW);  // Turn it off
+  digitalWrite(DECK_GPIO_LED_BLUE, LOW);  // Turn it off
   while(1) {
-    vTaskDelay(M2T(2000));
+    digitalWrite(DECK_GPIO_LED_BLUE, LOW);  // Turn it off
+    digitalWrite(DECK_GPIO_LED_RED, HIGH);  // Light it up
+    vTaskDelay(M2T(1000));
+    digitalWrite(DECK_GPIO_LED_RED, LOW);  // Turn it off
+    digitalWrite(DECK_GPIO_LED_GREEN, HIGH);  // Light it up
+    vTaskDelay(M2T(1000));
+    digitalWrite(DECK_GPIO_LED_GREEN, LOW);  // Turn it off
+    digitalWrite(DECK_GPIO_LED_YELLOW, HIGH);  // Light it up
+    vTaskDelay(M2T(1000));
+    digitalWrite(DECK_GPIO_LED_YELLOW, LOW);  // Turn it off
+    digitalWrite(DECK_GPIO_LED_BLUE, HIGH);  // Light it up
+    vTaskDelay(M2T(1000));
   }
 }
