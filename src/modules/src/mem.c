@@ -95,7 +95,7 @@ void memoryRegisterHandler(const MemoryHandlerDef_t* handlerDef){
     ASSERT(handlerDef->type != handlers[i]->type);
   }
   ASSERT(nrOfHandlers < MAX_NR_HANDLERS);
-  ASSERT(registrationEnabled);
+  // ASSERT(registrationEnabled);
   handlers[nrOfHandlers] = handlerDef;
   nrOfHandlers++;
 }

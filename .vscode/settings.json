@@ -5,6 +5,9 @@
         "**/bower_components": true
     },
     "files.associations": {
-        "bootloader.h": "c"
+        "bootloader.h": "c",
+        "outlierfiltertdoasteps.h": "c",
+        "cstdlib": "c",
+        "algorithm": "c"
     }
 }

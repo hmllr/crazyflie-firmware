@@ -80,7 +80,7 @@ static const uint16_t radius = 300;
 static const uint16_t radius_up_down = 100;
 static const float up_down_delta = 0.002f;
 
-static float height_sp = 0.2f;
+static float height_sp = 1.0f;
 
 #define MAX(a,b) ((a>b)?a:b)
 #define MIN(a,b) ((a<b)?a:b)
